@@ -1,19 +1,28 @@
 package com.badun.mongodbdemo.conf;
 
-import org.springframework.context.annotation.Bean;
+import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
+import com.mongodb.WriteConcern;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.core.MongoFactoryBean;
+import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
  * Created by Artsiom Badun.
  */
 @Configuration
-public class MongoConf {
+@EnableMongoRepositories(basePackages = "com/badun/mongodbdemo/data/repo")
+public class MongoConf extends AbstractMongoConfiguration {
 
-    public @Bean
-    MongoFactoryBean mongo() {
-        MongoFactoryBean mongo = new MongoFactoryBean();
-        mongo.setHost("localhost");
+    @Override
+    protected String getDatabaseName() {
+        return "userEvents";
+    }
+
+    @Override
+    public Mongo mongo() throws Exception {
+        Mongo mongo = new MongoClient("192.168.99.100", 32777);
+        mongo.setWriteConcern(WriteConcern.SAFE);
         return mongo;
     }
 }
