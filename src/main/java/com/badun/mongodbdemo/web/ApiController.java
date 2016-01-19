@@ -1,7 +1,7 @@
 package com.badun.mongodbdemo.web;
 
-import com.badun.elsearchdemo.data.entity.UserAction;
-import com.badun.elsearchdemo.service.UserActionService;
+import com.badun.mongodbdemo.data.entity.UserAction;
+import com.badun.mongodbdemo.service.UserActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

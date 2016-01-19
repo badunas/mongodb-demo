@@ -1,6 +1,6 @@
 package com.badun.mongodbdemo.web;
 
-import com.badun.elsearchdemo.model.HeartBeat;
+import com.badun.mongodbdemo.model.HeartBeat;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
